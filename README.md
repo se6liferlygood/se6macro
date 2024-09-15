@@ -12,4 +12,4 @@ WHAT THIS ORDER IS ON SWEDISH KEYBOARD WITH ENGLISH LAYOUT <br />
 ö <br />
 ä <br />
 ' <br />
-- <br />
+"-" <br />
