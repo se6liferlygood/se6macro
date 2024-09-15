@@ -1,4 +1,3 @@
-﻿
 $]::{
 	while getkeystate("]","P") {
 	Loop 10 {
@@ -40,4 +39,10 @@ while (true) {
 }
 \:: {
 	reload
+}
+/:: {
+	loop 20000 {
+		send("+c")
+		MsgBox "DONE!"
+	}
 }
