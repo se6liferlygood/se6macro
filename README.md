@@ -9,8 +9,8 @@
 * \ to reload macro if it breaks
 
 ## WHAT THIS ORDER IS ON SWEDISH KEYBOARD WITH ENGLISH LAYOUT
-å
-¨
-ö
-ä
-'
+* å
+* ¨
+* ö
+* ä
+* '
