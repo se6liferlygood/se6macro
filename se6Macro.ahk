@@ -43,6 +43,6 @@ while (true) {
 /:: {
 	loop 20000 {
 		send("+c")
-		MsgBox "DONE!"
 	}
+	MsgBox "DONE!"
 }
