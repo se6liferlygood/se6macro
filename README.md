@@ -1,13 +1,13 @@
 # se6macro
-[ to use use every gear in your toolbar
-] for dance7 jump macro
-; for autoclicker toggle
-' to spam click 3(good in key glitching)
-\ to reload macro if it breaks
-
-WHAT THIS ORDER IS ON SWEDISH KEYBOARD WITH ENGLISH LAYOUT
-å
-¨
-ö
-ä
-'
+[ to use use every gear in your toolbar <br />
+] for dance7 jump macro <br />
+; for autoclicker toggle <br />
+' to spam click 3(good in key glitching) <br />
+\ to reload macro if it breaks <br />
+<br />
+WHAT THIS ORDER IS ON SWEDISH KEYBOARD WITH ENGLISH LAYOUT <br />
+å <br />
+¨ <br />
+ö <br />
+ä <br />
+' <br />
