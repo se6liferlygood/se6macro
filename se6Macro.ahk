@@ -1,9 +1,12 @@
 $]::{
-	while getkeystate("]","P") {
-	Loop 10 {
+	Loop 5 {
 		MouseMove(1, A_ScreenHeight / 2)
+		Sleep 1
 		MouseMove(A_ScreenWidth / 2, A_ScreenHeight / 2)
-	}
+		Send("1")
+		Sleep 1
+		Send("2")
+		Sleep 1
 	}
 }
 $[::{
@@ -16,6 +19,9 @@ $[::{
 		Send("e")
 		MouseClick "left"
 		Sleep 10
+		if (A_Index > 9) {
+			Send("0")
+		}
 	}
 }
 global toggler := 0
