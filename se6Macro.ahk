@@ -38,7 +38,9 @@ while (true) {
 	}
 }
 \:: {
-	reload
+	global toggler
+	toggler := 0
+	ExitApp
 }
 /:: {
 	loop 20000 {
