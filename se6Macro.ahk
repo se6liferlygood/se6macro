@@ -43,8 +43,9 @@ while (true) {
 	ExitApp
 }
 /:: {
-	loop 20000 {
+	loop 2000 {
 		send("+c")
+		Sleep 1
 	}
 	MsgBox "DONE!"
 }
