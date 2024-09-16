@@ -46,3 +46,13 @@ while (true) {
 	}
 	MsgBox "DONE!"
 }
+=::{
+	while getkeystate("=","P") {
+		MouseClick "left"
+		Sleep 1
+		Send("^v")
+		Sleep 1
+		Send('{Enter}')
+		Sleep 1
+	}
+}
