@@ -3,7 +3,7 @@
 ] for dance7 jump macro <br />
 ; for autoclicker toggle <br />
 ' to spam click 3(good in key glitching) <br />
-\ to reload macro if it breaks <br />
+\ to exit macro <br />
 / to press shift + c 20k times <br />
 = for chat spam with clipboard and you have to have your mouse over chat <br />
 <br />
