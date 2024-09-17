@@ -51,7 +51,7 @@ $;::{ ;toggle autoclicker
 	toggler := 0
 	ExitApp
 }
-/:: { ;shift + c 2k times
+^\:: { ;shift + c 2k times
 	loop 2000 {
 		send("+c")
 		Sleep 1
@@ -89,7 +89,7 @@ global toggler2 := 0
 	}
 }
 tutorial() {
-	MsgBox("TUTORIAL`n`n`nPRESS CONTROL T TO VIEW TUTORIAL!!!`n`n`nKEYS ON ENGLISH LAYOUT KEYBOARD!`n`n] for dance7 jump macro`n`n[ to use every gear in tool bar including ability and it clicks for every gear`n`n; to toggle autoclicker`n`n' to spam click 3 for key glitching`n`n\ to exit macro `n`n / to press shift + c 2k times `n`n = to spam chat with your clipboard if you hold your mouse over the chat `n`n - to toggle speed glitch and you can press control - to toggle between air speed glitch and ground speed glitch and at first it is air speed glitch mode active `n`n ")
+	MsgBox("TUTORIAL`n`n`nPRESS CONTROL T TO VIEW TUTORIAL!!!`n`n`nKEYS ON ENGLISH LAYOUT KEYBOARD!`n`n] for dance7 jump macro`n`n[ to use every gear in tool bar including ability and it clicks for every gear`n`n; to toggle autoclicker`n`n' to spam click 3 for key glitching`n`n\ to exit macro `n`n control \ to press shift + c 2k times `n`n = to spam chat with your clipboard if you hold your mouse over the chat `n`n - to toggle speed glitch and you can press control - to toggle between air speed glitch and ground speed glitch and at first it is air speed glitch mode active `n`n ")
 
 }
 tutorial()
