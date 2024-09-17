@@ -1,15 +1,24 @@
-$]::{
-	Loop 5 {
+$]::{ ;dance7 jump macro
+	Loop 2 {
 		MouseMove(1, A_ScreenHeight / 2)
-		Sleep 1
-		MouseMove(A_ScreenWidth / 2, A_ScreenHeight / 2)
 		Send("1")
-		Sleep 1
+		MouseMove(A_ScreenWidth / 2, A_ScreenHeight / 2)
 		Send("2")
+	}
+	while getkeystate("]","P") {
+		Loop 2 {
+		MouseMove(A_ScreenWidth / 2, A_ScreenHeight / 2)
+		MouseMove(A_ScreenWidth / 3, A_ScreenHeight / 2)
+		}
+		Sleep 1
+		Loop 2 {
+		MouseMove(A_ScreenWidth / 2, A_ScreenHeight / 2)
+		MouseMove(A_ScreenWidth / 3 * 2, A_ScreenHeight / 2)
+		}
 		Sleep 1
 	}
 }
-$[::{
+$[::{ ;use all gears in toolbar
 	Loop 10 {
 		if (A_Index < 10) {
 			str := "" A_Index
@@ -25,37 +34,31 @@ $[::{
 	}
 }
 global toggler := 0
-$;::{
+$;::{ ;toggle autoclicker
 	global toggler
 	if (toggler = 1) {
 		toggler := 0
 	} else toggler := 1
 }
-while (true) {
-	if (toggler = 1) {
-		MouseClick "left"
-		Sleep 1
-	}
-}
-':: {
+':: { ;spam click 3 button for key glitching
 	while getkeystate("'","P"){
 		Send("3")
 		Sleep 1
 	}
 }
-\:: {
+\:: { ;exit macro
 	global toggler
 	toggler := 0
 	ExitApp
 }
-/:: {
+/:: { ;shift + c 2k times
 	loop 2000 {
 		send("+c")
 		Sleep 1
 	}
 	MsgBox "DONE!"
 }
-=::{
+=::{ ;chat spam with mouse
 	while getkeystate("=","P") {
 		MouseClick "left"
 		Sleep 1
@@ -64,4 +67,69 @@ while (true) {
 		Send('{Enter}')
 		Sleep 1
 	}
+}
+global airorground := 0
+global toggler2 := 0
+-::{ ;speed glitch
+	global toggler2
+	if(toggler2 = 0) {
+		toggler2 := 1
+	} else {
+		toggler2 := 0
+	}
+}
+^-::{ ;toggle speed glitch on ground or air
+	global airorground
+	if (airorground = 1) {
+		MsgBox("AIR SPEED GLITCH MODE")
+		airorground := 0
+	} else {
+		MsgBox("GROUND SPEED GLITCH MODE")
+		airorground := 1
+	}
+}
+tutorial() {
+	MsgBox("TUTORIAL`n`n`nPRESS CONTROL T TO VIEW TUTORIAL!!!`n`n`nKEYS ON ENGLISH LAYOUT KEYBOARD!`n`n] for dance7 jump macro`n`n[ to use every gear in tool bar including ability and it clicks for every gear`n`n; to toggle autoclicker`n`n' to spam click 3 for key glitching`n`n\ to exit macro `n`n / to press shift + c 2k times `n`n = to spam chat with your clipboard if you hold your mouse over the chat `n`n - to toggle speed glitch and you can press control - to toggle between air speed glitch and ground speed glitch and at first it is air speed glitch mode active `n`n ")
+
+}
+tutorial()
+^t::{
+	tutorial()
+}
+while (true) { ;autoclicker and speed glitch
+	if (toggler = 1) {
+		MouseClick "left"
+		Sleep 1
+	}
+	if(toggler2 = 1) {
+		global airorground
+		if (airorground = 1) {
+		loop 10 { ;GROUND SPEED
+			MouseMove(A_ScreenWidth / 3, A_ScreenHeight / 2)
+			Sleep 1
+			MouseMove(A_ScreenWidth / 3 * 2, A_ScreenHeight / 2)
+			Sleep 1
+		}
+		Sleep 100
+		if (toggler2 != 1) {
+			goto out
+		}
+		} else {
+		Send("{d down}")
+		loop 3 { ;AIR SPEED
+					loop A_ScreenWidth / 2 / 200 {
+					MouseMove(A_Index * 200, A_ScreenHeight / 2)
+					Sleep 1
+					MouseMove(A_ScreenWidth / 3, A_ScreenHeight / 2)
+					Sleep 1
+					}
+				}
+				Sleep 500
+				if(toggler2 != 1) {
+					Send("{d up}")
+					goto out
+				}
+		}
+	}
+	out:
 }
