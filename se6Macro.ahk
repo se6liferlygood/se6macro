@@ -3,7 +3,7 @@ WarningMessage() {
 }
 
 $]::{ ;dance7 jump macro
-if(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe")) {
+if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
 	Loop 2 {
 		MouseMove(1, A_ScreenHeight / 2)
 		Send("1")
@@ -21,7 +21,7 @@ if(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe
 		MouseMove(A_ScreenWidth / 3 * 2, A_ScreenHeight / 2)
 		}
 		Sleep 1
-		if(!(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe"))) {
+		if(!(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe"))) {
 			goto out1
 		}
 	}
@@ -30,7 +30,7 @@ out1:
 }
 
 $[::{ ;use all gears in toolbar
-if(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe")) {
+if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
 	Loop 10 {
 		if (A_Index < 10) {
 			str := "" A_Index
@@ -49,7 +49,7 @@ if(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe
 
 global toggler := 0
 $;::{ ;toggle autoclicker
-if(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe")) {
+if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
 	global toggler
 	if (toggler = 1) {
 		toggler := 0
@@ -62,11 +62,11 @@ if(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe
 }
 
 ':: { ;spam click 3 button for key glitching
-if(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe")) {
+if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
 	while getkeystate("'","P"){
 		Send("3")
 		Sleep 1
-		if(!(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe"))) {
+		if(!(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe"))) {
 			goto out2
 		}
 	}
@@ -81,7 +81,7 @@ out2:
 	ExitApp
 }
 ^\:: { ;shift + c 2k times
-if(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe")) {
+if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
 	loop 2000 {
 		send("+c")
 		Sleep 1
@@ -91,7 +91,7 @@ if(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe
 }
 
 =::{ ;chat spam with mouse
-if(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe")) {
+if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
 	while getkeystate("=","P") {
 		MouseClick "left"
 		Sleep 1
@@ -99,7 +99,7 @@ if(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe
 		Sleep 1
 		Send('{Enter}')
 		Sleep 1
-		if(!(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe"))) {
+		if(!(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe"))) {
 			goto out3
 		}
 	}
@@ -109,7 +109,7 @@ out3:
 
 global toggler2 := 0
 -::{ ;speed glitch
-if(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe")) {
+if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
 	global toggler2
 	if(toggler2 = 0) {
 		toggler2 := 1
@@ -129,7 +129,7 @@ tutorial()
 }
 
 while (true) { ;autoclicker and speed glitch
-if(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe")) {
+if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
 	if (toggler = 1) { ;AUTOCLICKER
 		MouseClick "left"
 		Sleep 1
