@@ -1,7 +1,9 @@
-global safety := 0
+WarningMessage() {
+	MsgBox("YOU CAN ONLY USE THIS IN ROBLOX!")
+}
+
 $]::{ ;dance7 jump macro
-global safety
-if(safety = 1) {
+if(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe")) {
 	Loop 2 {
 		MouseMove(1, A_ScreenHeight / 2)
 		Send("1")
@@ -19,16 +21,16 @@ if(safety = 1) {
 		MouseMove(A_ScreenWidth / 3 * 2, A_ScreenHeight / 2)
 		}
 		Sleep 1
-		if(safety = 0) {
+		if(!(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe"))) {
 			goto out1
 		}
 	}
-} else MsgBox("YOU CAN ONLY USE THIS IN ROBLOX!")
+} else WarningMessage()
 out1:
 }
+
 $[::{ ;use all gears in toolbar
-global safety
-if(safety = 1) {
+if(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe")) {
 	Loop 10 {
 		if (A_Index < 10) {
 			str := "" A_Index
@@ -42,12 +44,12 @@ if(safety = 1) {
 			Send("0")
 		}
 	}
-} else MsgBox("YOU CAN ONLY USE THIS IN ROBLOX!")
+} else WarningMessage()
 }
+
 global toggler := 0
 $;::{ ;toggle autoclicker
-global safety
-if(safety = 1) {
+if(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe")) {
 	global toggler
 	if (toggler = 1) {
 		toggler := 0
@@ -56,21 +58,22 @@ if(safety = 1) {
 		toggler := 1
 		MsgBox("AUTOCLICKER ON")
 	}
-} else MsgBox("YOU CAN ONLY USE THIS IN ROBLOX")
+} else WarningMessage()
 }
+
 ':: { ;spam click 3 button for key glitching
-global safety
-if(safety = 1) {
+if(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe")) {
 	while getkeystate("'","P"){
 		Send("3")
 		Sleep 1
-		if(safety = 0) {
+		if(!(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe"))) {
 			goto out2
 		}
 	}
-} else MsgBox("YOU CAN ONLY USE THIS IN ROBLOX")
+} else WarningMessage()
 out2:
 }
+
 \:: { ;exit macro
 	global toggler
 	toggler := 0
@@ -78,18 +81,17 @@ out2:
 	ExitApp
 }
 ^\:: { ;shift + c 2k times
-global safety
-if(safety = 1) {
+if(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe")) {
 	loop 2000 {
 		send("+c")
 		Sleep 1
 	}
 	MsgBox "DONE!"
-} else MsgBox("YOU CAN ONLY USE THIS IN ROBLOX!")
+} else WarningMessage()
 }
+
 =::{ ;chat spam with mouse
-global safety
-if(safety = 1) {
+if(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe")) {
 	while getkeystate("=","P") {
 		MouseClick "left"
 		Sleep 1
@@ -97,39 +99,37 @@ if(safety = 1) {
 		Sleep 1
 		Send('{Enter}')
 		Sleep 1
-		if(safety = 0) {
+		if(!(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe"))) {
 			goto out3
 		}
 	}
-} else MsgBox("YOU CAN ONLY USE THIS IN ROBLOX!")
+} else WarningMessage()
 out3:
 }
+
 global toggler2 := 0
 -::{ ;speed glitch
-global safety
-if(safety = 1) {
+if(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe")) {
 	global toggler2
 	if(toggler2 = 0) {
 		toggler2 := 1
 	} else {
 		toggler2 := 0
 	}
-} else MsgBox("YOU CAN ONLY USE THIS IN ROBLOX!")
+} else WarningMessage()
 }
 tutorial() {
 	MsgBox("TUTORIAL`n`n`nPRESS CONTROL T TO VIEW TUTORIAL!!!`n`n`nKEYS ON ENGLISH LAYOUT KEYBOARD!`n`n] for dance7 jump macro`n`n[ to use every gear in tool bar including ability and it clicks for every gear`n`n; to toggle autoclicker`n`n' to spam click 3 for key glitching`n`n\ to exit macro `n`n control \ to press shift + c 2k times `n`n = to spam chat with your clipboard if you hold your mouse over the chat `n`n - to toggle speed glitch and this speed glitch works both in air and on ground `n`n`nYOU CAN PRESS ENTER INSTEAD OF CLICKING OK! ")
 
 }
+
 tutorial()
 ^t::{
 	tutorial()
 }
+
 while (true) { ;autoclicker and speed glitch
-global safety
-if(WinActive("Roblox")) {
-	safety := 1
-} else safety := 0
-if(safety = 1) {
+if(WinActive("Roblox") || WinActive("RobloxBetaPlayer") || WinActive("Roblox.exe")) {
 	if (toggler = 1) { ;AUTOCLICKER
 		MouseClick "left"
 		Sleep 1
