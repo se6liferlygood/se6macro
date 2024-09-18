@@ -126,13 +126,13 @@ if(WinActive("Roblox")) {
 	safety := 1
 } else safety := 0
 if(safety = 1) {
-	if (toggler = 1) {
+	if (toggler = 1) { ;AUTOCLICKER
 		MouseClick "left"
 		Sleep 1
 	}
 	if(toggler2 = 1) {
 		Send("{d down}")
-		loop 10 { ;GROUND SPEED
+		loop 10 { ;SPEED GLITCH
 			MouseMove(A_ScreenWidth / 3, A_ScreenHeight / 2)
 			Sleep 1
 			MouseMove(A_ScreenWidth / 3 * 2, A_ScreenHeight / 2)
