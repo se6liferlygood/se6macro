@@ -51,7 +51,11 @@ if(safety = 1) {
 	global toggler
 	if (toggler = 1) {
 		toggler := 0
-	} else toggler := 1
+		MsgBox("AUTOCLICKER OFF")
+	} else {
+		toggler := 1
+		MsgBox("AUTOCLICKER ON")
+	}
 } else MsgBox("YOU CAN ONLY USE THIS IN ROBLOX")
 }
 ':: { ;spam click 3 button for key glitching
