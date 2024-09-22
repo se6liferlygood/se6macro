@@ -5,22 +5,17 @@ WarningMessage() {
 $]::{ ;dance7 jump macro
 if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
 	Loop 2 {
-		MouseMove(1, A_ScreenHeight / 2)
+		MouseMove(1 + A_Index, A_ScreenHeight / 2)
 		Send("1")
-		MouseMove(A_ScreenWidth / 2, A_ScreenHeight / 2)
+		MouseMove(A_ScreenWidth / 2 + A_Index, A_ScreenHeight / 2)
 		Send("2")
 	}
 	while getkeystate("]","P") {
-		Loop 2 {
-		MouseMove(A_ScreenWidth / 2, A_ScreenHeight / 2)
-		MouseMove(A_ScreenWidth / 3, A_ScreenHeight / 2)
+		loop 100 {
+			MouseMove(A_Index, A_ScreenHeight / 2)
+			MouseMove(A_ScreenWidth / 3 + A_Index, A_ScreenHeight / 2)
+			MouseMove(A_ScreenWidth / 3 * 2 + A_Index, A_ScreenHeight / 2)
 		}
-		Sleep 1
-		Loop 2 {
-		MouseMove(A_ScreenWidth / 2, A_ScreenHeight / 2)
-		MouseMove(A_ScreenWidth / 3 * 2, A_ScreenHeight / 2)
-		}
-		Sleep 1
 		if(!(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe"))) {
 			goto out1
 		}
@@ -87,12 +82,12 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 } else WarningMessage()
 }
 
-=::{ ;chat spam
+=::{ ;silly2 spam
 if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
 	while getkeystate("=","P") {
 		Send("/")
 		Sleep 1
-		Send("^v")
+		SendText("/e silly2")
 		Sleep 1
 		Send('{Enter}')
 		Sleep 1
@@ -110,13 +105,23 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 	global toggler2
 	if(toggler2 = 0) {
 		toggler2 := 1
+		Send("/")
+		Sleep 1
+		SendText("/e silly2")
+		Sleep 1
+		Send('{Enter}')
 	} else {
 		toggler2 := 0
+		Send("/")
+		Sleep 1
+		SendText("/e silly2")
+		Sleep 1
+		Send('{Enter}')
 	}
 } else WarningMessage()
 }
 tutorial() {
-	MsgBox("TUTORIAL`n`n`nPRESS CONTROL T TO VIEW TUTORIAL!!!`n`n`nKEYS ON ENGLISH LAYOUT KEYBOARD!`n`n] for dance7 jump macro`n`n[ to use every gear in tool bar including ability and it clicks for every gear`n`n; to toggle autoclicker`n`nhold ' for ascend glitch (YOU MUST HAVE KEY AT 3!)`n`n\ to exit macro `n`n control \ to press shift + c 2k times `n`n = to spam chat with your clipboard `n`n - to toggle speed glitch and this speed glitch works both in air and on ground `n`n`nYOU CAN PRESS ENTER INSTEAD OF CLICKING OK! ")
+	MsgBox("TUTORIAL`n`n`nPRESS CONTROL T TO VIEW TUTORIAL!!!`n`n`nKEYS ON ENGLISH LAYOUT KEYBOARD!`n`n] for dance7 jump macro`n`n[ to use every gear in tool bar including ability and it clicks for every gear`n`n; to toggle autoclicker`n`nhold ' for ascend glitch (YOU MUST HAVE KEY AT 3!)`n`n\ to exit macro `n`n control \ to press shift + c 2k times `n`n = to spam chat with /e silly2 `n`n - to toggle speed glitch and this speed glitch works both in air and on ground `n`n`nYOU CAN PRESS ENTER INSTEAD OF CLICKING OK! ")
 
 }
 
@@ -128,7 +133,9 @@ tutorial()
 while (true) { ;autoclicker and speed glitch
 if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
 	if (toggler = 1) { ;AUTOCLICKER
+		loop 5 {
 		MouseClick "left"
+		}
 		Sleep 1
 	}
 	if(toggler2 = 1) {
