@@ -105,18 +105,8 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 	global toggler2
 	if(toggler2 = 0) {
 		toggler2 := 1
-		Send("/")
-		Sleep 1
-		SendText("/e silly2")
-		Sleep 1
-		Send('{Enter}')
 	} else {
 		toggler2 := 0
-		Send("/")
-		Sleep 1
-		SendText("/e silly2")
-		Sleep 1
-		Send('{Enter}')
 	}
 } else WarningMessage()
 }
