@@ -17,7 +17,7 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 	if(getkeystate("s","P")) {
 		Send("{w down}")
 		Send("{s up}")
-		Sleep 75
+		Sleep 50
 		Send("{Shift}")
 		Loop 4 {
 			MouseMove(1 + A_Index, A_ScreenHeight / 2)
