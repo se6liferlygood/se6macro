@@ -162,7 +162,7 @@ tutorial()
 	tutorial()
 }
 
-while (true) { ;autoclicker and speed glitch
+while (true) { ;autoclicker
 if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
 	if (toggler = 1) { ;AUTOCLICKER
 		loop 5 {
