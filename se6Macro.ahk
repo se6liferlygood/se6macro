@@ -7,35 +7,17 @@ DtoR(x) { ;degrees to radians
 }
 
 global p := 0.1
-$]::{ ;dance7 jump macro and backfling macro
+$]::{ ;dance7 jump macro
 if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
 	MouseGetPos &xpos, &ypos
 	global p
 	Send("2")
 	s := 0
-	b := 0
-	if(getkeystate("s","P")) {
-		Send("{w down}")
-		Send("{s up}")
-		Sleep 50
-		Send("{Shift}")
-		Loop 4 {
-			MouseMove(1 + A_Index, A_ScreenHeight / 2)
-			Send("3")
-			MouseMove(A_ScreenWidth / 2 + A_Index, A_ScreenHeight / 2)
-			Send("2")
-		}
-		Send("3")
-		Sleep 100
-		Send("2")
-		b := 1
-	} else {
 	Loop 2 {
 		MouseMove(1 + A_Index, A_ScreenHeight / 2)
 		Send("3")
 		MouseMove(A_ScreenWidth / 2 + A_Index, A_ScreenHeight / 2)
 		Send("2")
-	}
 	}
 	Send("3")
 	Sleep 100
@@ -54,9 +36,6 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 			goto out1
 		}
 		s := 1
-	}
-	if(b = 1) {
-		Send("{w up}")
 	}
 } else WarningMessage()
 out1:
@@ -153,7 +132,7 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 } else WarningMessage()
 }
 tutorial() {
-	MsgBox("TUTORIAL`n`n`nPRESS CONTROL T TO VIEW TUTORIAL!!!`n`n`nKEYS ON ENGLISH LAYOUT KEYBOARD!`nYOU MUST HAVE KEY AT 3 IN TOOLBAR!`n`n] for dance7 jump macro`n`n[ to use every gear in tool bar including ability and it clicks for every gear`n`n; to toggle autoclicker`n`nhold ' for ascend glitch (YOU MUST HAVE KEY AT 3!)`n`n\ to exit macro `n`n control \ to press shift + c 2k times `n`n = to spam chat with /e silly2 `n`n hold - for speed glitch and this speed glitch works both in air and on ground `n`n`n`nHOW TO DO BACKFLING MACRO!`n`nWHILE HOLDING S AND LAYING DOWN IN DANCE7 WITHOUT SHIFTLOCK TURNED ON HOLD THE DANCE7 JUMP MACRO BUTTON FOR A WHILE THEN LET GO!`n`n`n`nYOU CAN PRESS ENTER INSTEAD OF CLICKING OK! ")
+	MsgBox("TUTORIAL`n`n`nPRESS CONTROL T TO VIEW TUTORIAL!!!`n`n`nKEYS ON ENGLISH LAYOUT KEYBOARD!`nYOU MUST HAVE KEY AT 3 IN TOOLBAR!`n`n] for dance7 jump macro`n`n[ to use every gear in tool bar including ability and it clicks for every gear`n`n; to toggle autoclicker`n`nhold ' for ascend glitch (YOU MUST HAVE KEY AT 3!)`n`n\ to exit macro `n`n control \ to press shift + c 2k times `n`n = to spam chat with /e silly2 `n`n hold - for speed glitch and this speed glitch works both in air and on ground`n`n`nYOU CAN PRESS ENTER INSTEAD OF CLICKING OK! ")
 
 }
 
