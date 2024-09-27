@@ -65,10 +65,10 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 	global toggler
 	if (toggler = 1) {
 		toggler := 0
-		MsgBox("AUTOCLICKER OFF")
+		MsgBox("AUTOCLICKER OFF`n`nYOU CAN PRESS ENTER INSTEAD OF CLICKING OK!")
 	} else {
 		toggler := 1
-		MsgBox("AUTOCLICKER ON")
+		MsgBox("AUTOCLICKER ON`n`nYOU CAN PRESS ENTER INSTEAD OF CLICKING OK!")
 	}
 } else WarningMessage()
 }
@@ -131,8 +131,20 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 	Send("{d up}")
 } else WarningMessage()
 }
+
+#SuspendExempt
+
+^p:: { 
+	Suspend
+	if(A_IsSuspended) {
+		MsgBox("MACRO PAUSED!`n`n`nPRESS CONTROL P TO UNPAUSE!`n`nYOU CAN PRESS ENTER INSTEAD OF CLICKING OK!")
+	} else {
+		MsgBox("MACRO UNPAUSED!`n`n`nPRESS CONTROL P TO PAUSE!`n`nYOU CAN PRESS ENTER INSTEAD OF CLICKING OK!")
+	}
+}
+
 tutorial() {
-	MsgBox("TUTORIAL`n`n`nPRESS CONTROL T TO VIEW TUTORIAL!!!`n`n`nKEYS ON ENGLISH LAYOUT KEYBOARD!`nYOU MUST HAVE KEY AT 3 IN TOOLBAR!`n`n] for dance7 jump macro`n`n[ to use every gear in tool bar including ability and it clicks for every gear`n`n; to toggle autoclicker`n`nhold ' for ascend glitch (YOU MUST HAVE KEY AT 3!)`n`n\ to exit macro `n`n control \ to press shift + c 2k times `n`n = to spam chat with /e silly2 `n`n hold - for speed glitch and this speed glitch works both in air and on ground`n`n`nYOU CAN PRESS ENTER INSTEAD OF CLICKING OK! ")
+	MsgBox("TUTORIAL!`n`n`nPRESS CONTROL T TO VIEW TUTORIAL!!!`n`nPRESS CONTROL P TO PAUSE/UNPAUSE MACRO!`n`n`nKEYS ON ENGLISH LAYOUT KEYBOARD!`nYOU MUST HAVE KEY AT 3 IN TOOLBAR!`n`n] for dance7 jump macro`n`n[ to use every gear in tool bar including ability and it clicks for every gear`n`n; to toggle autoclicker`n`nhold ' for ascend glitch (YOU MUST HAVE KEY AT 3!)`n`n\ to exit macro `n`n control \ to press shift + c 2k times `n`n = to spam chat with /e silly2 `n`n hold - for speed glitch and this speed glitch works both in air and on ground`n`n`nYOU CAN PRESS ENTER INSTEAD OF CLICKING OK! ")
 
 }
 
@@ -140,6 +152,7 @@ tutorial()
 ^t::{
 	tutorial()
 }
+#SuspendExempt false
 
 while (true) { ;autoclicker
 if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
