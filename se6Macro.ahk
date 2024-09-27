@@ -83,7 +83,30 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 } else WarningMessage()
 }
 
-\:: { ;exit macro
+\:: { ;god ascend glitch
+if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
+	while getkeystate("\","P") {
+		Send("{Esc}")
+		Sleep 100
+		MouseMove(A_ScreenWidth,-100)
+		Click("Down")
+		Send("{Esc}")
+		loop 10 {
+			Send("3")
+			Sleep 1
+			Send("2")
+			Sleep 1
+		}
+		Send("3")
+		Sleep 100
+		MouseMove(A_ScreenWidth / 2, A_ScreenHeight / 2)
+		Click("Up")
+		Sleep 1000
+	}
+} else WarningMessage()
+}
+
+!\:: { ;exit macro
 	global toggler
 	toggler := 0
 	MsgBox("EXITED MACRO")
@@ -144,7 +167,7 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 }
 
 tutorial() {
-	MsgBox("TUTORIAL!`n`n`nPRESS CONTROL T TO VIEW TUTORIAL!!!`n`nPRESS CONTROL P TO PAUSE/UNPAUSE MACRO!`n`n`nKEYS ON ENGLISH LAYOUT KEYBOARD!`nYOU MUST HAVE KEY AT 3 IN TOOLBAR!`n`n] for dance7 jump macro`n`n[ to use every gear in tool bar including ability and it clicks for every gear`n`n; to toggle autoclicker`n`nhold ' for ascend glitch (YOU MUST HAVE KEY AT 3!)`n`n\ to exit macro `n`n control \ to press shift + c 2k times `n`n = to spam chat with /e silly2 `n`n hold - for speed glitch and this speed glitch works both in air and on ground`n`n`nYOU CAN PRESS ENTER INSTEAD OF CLICKING OK! ")
+	MsgBox("TUTORIAL!`n`n`nPRESS CONTROL T TO VIEW TUTORIAL!!!`n`nPRESS CONTROL P TO PAUSE/UNPAUSE MACRO!`n`n`nKEYS ON ENGLISH LAYOUT KEYBOARD!`nYOU MUST HAVE KEY AT 3 IN TOOLBAR!`n`n] for dance7 jump macro`n`n[ to use every gear in tool bar including ability and it clicks for every gear`n`n; to toggle autoclicker`n`nhold ' for ascend glitch (YOU MUST HAVE KEY AT 3!)`n`nalt \ to exit macro `n`nhold \ for god ascend glitch (YOU MUST HAVE KEY AT 3 IN TOOLBAR AND DONT USE FULLSCREEN MODE)`n`n control \ to press shift + c 2k times `n`n = to spam chat with /e silly2 `n`n hold - for speed glitch and this speed glitch works both in air and on ground`n`n`nYOU CAN PRESS ENTER INSTEAD OF CLICKING OK! ")
 
 }
 
