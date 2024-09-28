@@ -67,14 +67,11 @@ $;::{ ;toggle autoclicker
 if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
 	MsgBox("AUTOCLICKER ON`n`nYOU CAN PRESS ENTER INSTEAD OF CLICKING OK!")
 	Sleep 100
-	while 1 {
+	while !getkeystate(";","P") {
 		Sleep 10
 		MouseClick "left"
-		if(getkeystate(";","P")) {
-			MsgBox("AUTOCLICKER OFF`n`nYOU CAN PRESS ENTER INSTEAD OF CLICKING OK!")
-			break
-		}
 	}
+	MsgBox("AUTOCLICKER OFF`n`nYOU CAN PRESS ENTER INSTEAD OF CLICKING OK!")
 } else WarningMessage()
 }
 
