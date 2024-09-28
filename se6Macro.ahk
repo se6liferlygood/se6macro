@@ -48,12 +48,8 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 			str := "" A_Index
 			Send(str)
 		} else Send("0")
-		Send("q")
-		Send("e")
-		Send("z")
-		Send("x")
-		Send("c")
-		Sleep 1
+		Send("{q}{e}{z}{x}{c}")
+		Sleep 10
 		MouseClick "left"
 		Sleep 5
 		if (A_Index > 9) {
