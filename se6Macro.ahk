@@ -27,10 +27,10 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 		loop i {
 			MouseMove(xpos + Cos(DtoR(360 * (A_Index / i))) * (A_ScreenWidth / 2 * p),A_ScreenHeight / 2)
 			MouseMove(xpos + Sin(DtoR(360 * (A_Index / i))) * (A_ScreenWidth / 2 * p),A_ScreenHeight / 2)
-			Sleep 1
+			Sleep 10
 			MouseMove(xpos - Cos(DtoR(360 * (A_Index / i))) * (A_ScreenWidth / 2 * p),A_ScreenHeight / 2)
 			MouseMove(xpos - Sin(DtoR(360 * (A_Index / i))) * (A_ScreenWidth / 2 * p),A_ScreenHeight / 2)
-			Sleep 1
+			Sleep 10
 		}
 		if(!(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe"))) {
 			goto out1
@@ -50,8 +50,12 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 		} else Send("0")
 		Send("q")
 		Send("e")
+		Send("z")
+		Send("x")
+		Send("c")
+		Sleep 1
 		MouseClick "left"
-		Sleep 10
+		Sleep 5
 		if (A_Index > 9) {
 			Send("0")
 		}
@@ -59,16 +63,17 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 } else WarningMessage()
 }
 
-global toggler := 0
 $;::{ ;toggle autoclicker
 if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
-	global toggler
-	if (toggler = 1) {
-		toggler := 0
-		MsgBox("AUTOCLICKER OFF`n`nYOU CAN PRESS ENTER INSTEAD OF CLICKING OK!")
-	} else {
-		toggler := 1
-		MsgBox("AUTOCLICKER ON`n`nYOU CAN PRESS ENTER INSTEAD OF CLICKING OK!")
+	MsgBox("AUTOCLICKER ON`n`nYOU CAN PRESS ENTER INSTEAD OF CLICKING OK!")
+	Sleep 100
+	while 1 {
+		Sleep 10
+		MouseClick "left"
+		if(getkeystate(";","P")) {
+			MsgBox("AUTOCLICKER OFF`n`nYOU CAN PRESS ENTER INSTEAD OF CLICKING OK!")
+			break
+		}
 	}
 } else WarningMessage()
 }
@@ -116,7 +121,7 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
 	loop 2000 {
 		send("+c")
-		Sleep 1
+		Sleep 10
 	}
 	MsgBox "DONE!"
 } else WarningMessage()
@@ -126,11 +131,11 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
 	while getkeystate("=","P") {
 		Send("/")
-		Sleep 1
+		Sleep 25
 		SendText("/e silly2")
-		Sleep 1
+		Sleep 25
 		Send('{Enter}')
-		Sleep 1
+		Sleep 25
 		if(!(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe"))) {
 			goto out3
 		}
@@ -145,9 +150,9 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 	Send("{d down}")
 		loop 10 { ;SPEED GLITCH
 			MouseMove(A_ScreenWidth / 3, A_ScreenHeight / 2)
-			Sleep 1
+			Sleep 10
 			MouseMove(A_ScreenWidth / 3 * 2, A_ScreenHeight / 2)
-			Sleep 1
+			Sleep 10
 		}
 		Sleep 50
 	}
@@ -176,14 +181,3 @@ tutorial()
 	tutorial()
 }
 #SuspendExempt false
-
-while (true) { ;autoclicker
-if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
-	if (toggler = 1) { ;AUTOCLICKER
-		loop 5 {
-		MouseClick "left"
-		}
-		Sleep 1
-	}
-	}
-}
