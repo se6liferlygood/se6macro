@@ -122,8 +122,8 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 ^\:: { ;customize god ascend glitch 
 	global gatimes
 	global gasleep
-	atimes := InputBox("HOW MANY TIMES WILL KEY BE EQUIPPED PER INTERVAL IN GOD ASCEND GLITCH? (it is " gatimes " right now)").value
-	asleep := InputBox("HOW LONG TO WAIT BETWEEN EVERY INTERVAL IN GOD ASCEND GLITCH? (1 second is 1000 miliseconds and right now the time is " gasleep " miliseconds)").value
+	gatimes := InputBox("HOW MANY TIMES WILL KEY BE EQUIPPED PER INTERVAL IN GOD ASCEND GLITCH? (it is " gatimes " right now)").value
+	gasleep := InputBox("HOW LONG TO WAIT BETWEEN EVERY INTERVAL IN GOD ASCEND GLITCH? (1 second is 1000 miliseconds and right now the time is " gasleep " miliseconds)").value
 }
 
 !\:: { ;exit macro
