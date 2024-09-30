@@ -7,6 +7,7 @@ DtoR(x) { ;degrees to radians
 }
 
 global p := 0.1
+global dancefps := 100
 $]::{ ;dance7 jump macro
 if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
 	MouseGetPos &xpos, &ypos
@@ -24,21 +25,27 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 	Send("2")
 	i := 15
 	while (getkeystate("]","P") || s = 0) {
-		loop i {
-			MouseMove(xpos + Cos(DtoR(360 * (A_Index / i))) * (A_ScreenWidth / 2 * p),A_ScreenHeight / 2)
-			MouseMove(xpos + Sin(DtoR(360 * (A_Index / i))) * (A_ScreenWidth / 2 * p),A_ScreenHeight / 2)
-			Sleep 10
-			MouseMove(xpos - Cos(DtoR(360 * (A_Index / i))) * (A_ScreenWidth / 2 * p),A_ScreenHeight / 2)
-			MouseMove(xpos - Sin(DtoR(360 * (A_Index / i))) * (A_ScreenWidth / 2 * p),A_ScreenHeight / 2)
-			Sleep 10
+		loop Ceil(i * (10 / (1000 / dancefps))) {
+			MouseMove(xpos + Cos(DtoR(360 * (A_Index / (i * (10 / (1000 / dancefps)))))) * (A_ScreenWidth / 2 * p),A_ScreenHeight / 2)
+			MouseMove(xpos + Sin(DtoR(360 * (A_Index / (i * (10 / (1000 / dancefps)))))) * (A_ScreenWidth / 2 * p),A_ScreenHeight / 2)
+			Sleep 1000 / dancefps
+			MouseMove(xpos - Cos(DtoR(360 * (A_Index / (i * (10 / (1000 / dancefps)))))) * (A_ScreenWidth / 2 * p),A_ScreenHeight / 2)
+			MouseMove(xpos - Sin(DtoR(360 * (A_Index / (i * (10 / (1000 / dancefps)))))) * (A_ScreenWidth / 2 * p),A_ScreenHeight / 2)
+			Sleep 1000 / dancefps
 		}
 		if(!(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe"))) {
 			goto out1
 		}
 		s := 1
 	}
+	MouseMove(xpos, A_ScreenHeight / 2)
 } else WarningMessage()
 out1:
+}
+
+^]:: { ;customize dance7 jump macro
+	global p := InputBox("How much percentage of the screenwidth will the mouse move in? CURRENT PERCENTAGE: " p * 100).value / 100
+	global dancefps := InputBox("At what fps will the mouse move at? (IF THE FPS IS TOO HIGH FOR YOUR COMPUTER THE MACRO WILL BE SLOWER!) CURRENT FPS: " dancefps).value
 }
 
 $[::{ ;use all gears in toolbar
@@ -86,10 +93,8 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 }
 
 ^':: { ;customize ascend glitch 
-	global atimes
-	global asleep
-	atimes := InputBox("HOW MANY TIMES WILL KEY BE EQUIPPED PER INTERVAL IN NORMAL ASCEND GLITCH? (it is " atimes " right now)").value
-	asleep := InputBox("HOW LONG TO WAIT BETWEEN EVERY INTERVAL IN NORMAL ASCEND GLITCH? (1 second is 1000 miliseconds and right now the time is " asleep " miliseconds)").value
+	global atimes := InputBox("HOW MANY TIMES WILL KEY BE EQUIPPED PER INTERVAL IN NORMAL ASCEND GLITCH? (it is " atimes " right now)").value
+	global asleep := InputBox("HOW LONG TO WAIT BETWEEN EVERY INTERVAL IN NORMAL ASCEND GLITCH? (1 second is 1000 miliseconds and right now the time is " asleep " miliseconds)").value
 }
 
 global gatimes := 10
@@ -120,10 +125,8 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 }
 
 ^\:: { ;customize god ascend glitch 
-	global gatimes
-	global gasleep
-	gatimes := InputBox("HOW MANY TIMES WILL KEY BE EQUIPPED PER INTERVAL IN GOD ASCEND GLITCH? (it is " gatimes " right now)").value
-	gasleep := InputBox("HOW LONG TO WAIT BETWEEN EVERY INTERVAL IN GOD ASCEND GLITCH? (1 second is 1000 miliseconds and right now the time is " gasleep " miliseconds)").value
+	global gatimes := InputBox("HOW MANY TIMES WILL KEY BE EQUIPPED PER INTERVAL IN GOD ASCEND GLITCH? (it is " gatimes " right now)").value
+	global gasleep := InputBox("HOW LONG TO WAIT BETWEEN EVERY INTERVAL IN GOD ASCEND GLITCH? (1 second is 1000 miliseconds and right now the time is " gasleep " miliseconds)").value
 }
 
 !\:: { ;exit macro
@@ -178,7 +181,7 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 }
 
 tutorial() {
-	MsgBox("TUTORIAL!`n`n`nPRESS CONTROL T TO VIEW TUTORIAL!!!`n`nPRESS CONTROL P TO PAUSE/UNPAUSE MACRO!`n`n`nKEYS ON ENGLISH LAYOUT KEYBOARD!`nYOU MUST HAVE KEY AT 3 IN TOOLBAR!`n`n] for dance7 jump macro`n`n[ to use every gear in tool bar including ability and it clicks for every gear`n`n; to toggle autoclicker`n`nhold ' for ascend glitch (YOU MUST HAVE KEY AT 3!) you can customize ascend glitch by pressing control '`n`nalt \ to exit macro `n`nhold \ for god ascend glitch (YOU MUST HAVE KEY AT 3 IN TOOLBAR AND DONT USE FULLSCREEN MODE) you can customize god ascend glitch by pressing control \`n`n = to spam chat with /e silly2 `n`n hold - for speed glitch and this speed glitch works both in air and on ground`n`n`nYOU CAN PRESS ENTER INSTEAD OF CLICKING OK! ")
+	MsgBox("TUTORIAL!`n`n`nPRESS CONTROL T TO VIEW TUTORIAL!!!`n`nPRESS CONTROL P TO PAUSE/UNPAUSE MACRO!`n`n`nKEYS ON ENGLISH LAYOUT KEYBOARD!`nYOU MUST HAVE KEY AT 3 IN TOOLBAR!`n`n] for dance7 jump macro and you can press control ] to customize dance7 jump macro`n`n[ to use every gear in tool bar including ability and it clicks for every gear`n`n; to toggle autoclicker`n`nhold ' for ascend glitch (YOU MUST HAVE KEY AT 3!) you can customize ascend glitch by pressing control '`n`nalt \ to exit macro `n`nhold \ for god ascend glitch (YOU MUST HAVE KEY AT 3 IN TOOLBAR AND DONT USE FULLSCREEN MODE) you can customize god ascend glitch by pressing control \`n`n = to spam chat with /e silly2 `n`n hold - for speed glitch and this speed glitch works both in air and on ground`n`n`nYOU CAN PRESS ENTER INSTEAD OF CLICKING OK! ")
 
 }
 
