@@ -48,22 +48,40 @@ out1:
 	global dancefps := InputBox("At what fps will the mouse move at? (IF THE FPS IS TOO HIGH FOR YOUR COMPUTER THE MACRO WILL BE SLOWER!) CURRENT FPS: " dancefps).value
 }
 
+global uses := 10
+global ta := 1
 $[::{ ;use all gears in toolbar
 if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
+global uses
+global ta
 	Loop 10 {
-		if (A_Index < 10) {
-			str := "" A_Index
-			Send(str)
-		} else Send("0")
-		Send("{q}{e}{z}{x}{c}")
-		Sleep 10
-		MouseClick "left"
-		Sleep 5
-		if (A_Index > 9) {
-			Send("0")
+		Send("{" (A_Index - 1) "}{LButton}")
+		if (ta = 1) {
+			Sleep 1
+			Send("{q}{e}{z}{x}{c}{r}{f}{v}")
 		}
+		Sleep uses
 	}
+	Send("9")
 } else WarningMessage()
+}
+
+^[:: { ;customize use all gears in toolbar 
+	global ta
+	if(ta = 1) {
+		str := "all"
+	} else {
+		str := "no"
+	}
+	Result := MsgBox("Press yes to disable ability usage and only keep click in gear swapping and press no to use ability between every gear swap`n`n(if ability is disabled gear swapping is faster and " str " abilities are used right now)",, "YesNo")
+	global uses := InputBox("How many milisecond wait between every gear swap `n`n(1 SECOND IS 1000 MILISECONDS AND RIGHT NOW IT IS " uses " MILISECONDS WAIT!)").value
+	if(Result = "Yes") {
+		ta := 0
+		MsgBox("You chose to disable ability usage!")
+	} else {
+		ta := 1
+		MsgBox("You chose to enable ability usage!")
+	}
 }
 
 $;::{ ;toggle autoclicker
@@ -78,15 +96,14 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 } else WarningMessage()
 }
 
-global atimes := 5
+global atimes := 10
 global asleep := 100
 ':: { ;ascend glitch
 if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
 	global atimes
 	global asleep
 	loop atimes {
-	send("2")
-	send("3")
+		Send("{2 Down}{3 Down}{2 Up}{3 Up}")
 	}
 	Sleep asleep
 } else WarningMessage()
@@ -97,7 +114,7 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 	global asleep := InputBox("HOW LONG TO WAIT BETWEEN EVERY INTERVAL IN NORMAL ASCEND GLITCH? (1 second is 1000 miliseconds and right now the time is " asleep " miliseconds)").value
 }
 
-global gatimes := 10
+global gatimes := 50
 global gasleep := 1000
 \:: { ;god ascend glitch
 if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
@@ -110,12 +127,8 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 		Click("Down")
 		Send("{Esc}")
 		loop gatimes {
-			Send("3")
-			Sleep 1
-			Send("2")
-			Sleep 1
+			Send("{2 Down}{3 Down}{2 Up}{3 Up}")
 		}
-		Send("3")
 		Sleep 100
 		MouseMove(A_ScreenWidth / 2, A_ScreenHeight / 2)
 		Click("Up")
@@ -190,7 +203,7 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 }
 
 tutorial() {
-	MsgBox("LPI MACRO TUTORIAL!`n`n`nPRESS CONTROL T TO VIEW TUTORIAL!!!`n`nPRESS CONTROL P TO PAUSE/UNPAUSE MACRO!`n`n`nKEYS ON ENGLISH LAYOUT KEYBOARD!`nYOU MUST HAVE KEY AT 3 IN TOOLBAR!`n`n] for dance7 jump macro and you can press control ] to customize dance7 jump macro`n`n[ to use every gear in tool bar including ability and it clicks for every gear`n`n; to toggle autoclicker`n`nhold ' for ascend glitch (YOU MUST HAVE KEY AT 3!) you can customize ascend glitch by pressing control '`n`nalt \ to exit macro `n`nhold \ for god ascend glitch (YOU MUST HAVE KEY AT 3 IN TOOLBAR AND DONT USE FULLSCREEN MODE) you can customize god ascend glitch by pressing control \`n`n = to spam chat with /e silly2 `n`n hold - for speed glitch`n`n`nYOU CAN PRESS ENTER INSTEAD OF CLICKING OK! ")
+	MsgBox("LPI MACRO TUTORIAL!`n`n`nPRESS CONTROL T TO VIEW TUTORIAL!!!`n`nPRESS CONTROL P TO PAUSE/UNPAUSE MACRO!`n`n`nKEYS ON ENGLISH LAYOUT KEYBOARD!`nYOU MUST HAVE KEY AT 3 IN TOOLBAR!`n`n] for dance7 jump macro and you can press control ] to customize dance7 jump macro`n`n[ to use every gear in tool bar and you can press control [ to customize this`n`n; to toggle autoclicker`n`nhold ' for ascend glitch (YOU MUST HAVE KEY AT 3!) you can customize ascend glitch by pressing control '`n`nalt \ to exit macro `n`nhold \ for god ascend glitch (YOU MUST HAVE KEY AT 3 IN TOOLBAR AND DONT USE FULLSCREEN MODE) you can customize god ascend glitch by pressing control \`n`n = to spam chat with /e silly2 `n`n hold - for speed glitch`n`n`nYOU CAN PRESS ENTER INSTEAD OF CLICKING OK! ")
 
 }
 
