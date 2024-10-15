@@ -7,7 +7,7 @@ DtoR(x) { ;degrees to radians
 }
 
 global p := 0.1
-global dancefps := 100
+global dancefps := 50
 $]::{ ;dance7 jump macro
 if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
 	MouseGetPos &xpos, &ypos
@@ -169,18 +169,16 @@ out3:
 -::{ ;speed glitch
 if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
 	if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
+	MouseGetPos &xpos, &ypos
 	while (GetKeyState("-","P")) {
 				Send("{s down}{d down}{space down}")
 				loop 15 { ;SPEED GLITCH
-					loop 2 {
-						MouseMove(A_ScreenWidth / 3, A_ScreenHeight / 2)
-						MouseMove(A_ScreenWidth / 3 * 2, A_ScreenHeight / 2)
-					}
-					MouseMove(A_ScreenWidth / 3, A_ScreenHeight / 2)
-					Sleep 1
-					MouseMove(A_ScreenWidth / 3 * 2, A_ScreenHeight / 2)
-					Sleep 1
+					MouseMove(xpos + A_ScreenWidth * 0.1, A_ScreenHeight / 2)
+					Sleep 10
+					MouseMove(xpos - A_ScreenWidth * 0.1, A_ScreenHeight / 2)
+					Sleep 10
 				}
+				MouseMove(xpos, A_ScreenHeight / 2)
 				Sleep 50
 				if (!(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe"))) {
 					Send("{s up}{d up}{space up}")
