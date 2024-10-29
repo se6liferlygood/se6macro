@@ -8,23 +8,24 @@ DtoR(x) { ;degrees to radians
 
 global p := 0.1
 global dancefps := 50
+global equipped := 5
+global spin := 1
 $]::{ ;dance7 jump macro
 if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
 	MouseGetPos &xpos, &ypos
 	global p
 	Send("2")
 	s := 0
-	Loop 2 {
-		MouseMove(1 + A_Index, A_ScreenHeight / 2)
-		Send("3")
-		MouseMove(A_ScreenWidth / 2 + A_Index, A_ScreenHeight / 2)
-		Send("2")
+	str := ""
+	Loop equipped {
+		str := str "{2 Down}{3 Down}{2 Up}{3 Up}"
 	}
-	Send("3")
+	Send(str)
 	Sleep 100
 	Send("2")
 	i := 15
-	while (getkeystate("]","P") || s = 0) {
+	while ((getkeystate("]","P") && !(spin = 2 && s = 1)) || s = 0) {
+		if(spin > 0) {
 		loop Ceil(i * (10 / (1000 / dancefps))) {
 			MouseMove(xpos + Cos(DtoR(360 * (A_Index / (i * (10 / (1000 / dancefps)))))) * (A_ScreenWidth / 2 * p),A_ScreenHeight / 2)
 			MouseMove(xpos + Sin(DtoR(360 * (A_Index / (i * (10 / (1000 / dancefps)))))) * (A_ScreenWidth / 2 * p),A_ScreenHeight / 2)
@@ -36,16 +37,43 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 		if(!(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe"))) {
 			goto out1
 		}
+	}
+		if(spin = 0 || spin = 2) {
+			Send("{s down}{d down}{space down}")
+		while (getkeystate("]","P") || s = 0) {
+		loop 15 { ;SPEED GLITCH
+			MouseMove(xpos + A_ScreenWidth * 0.1, A_ScreenHeight / 2)
+			Sleep 10
+			MouseMove(xpos - A_ScreenWidth * 0.1, A_ScreenHeight / 2)
+			Sleep 10
+		}
+		MouseMove(xpos, A_ScreenHeight / 2)
 		s := 1
 	}
-	MouseMove(xpos, A_ScreenHeight / 2)
+	Send("{s up}{d up}{space up}")
+		}
+		s := 1
+	}
 } else WarningMessage()
 out1:
 }
 
 ^]:: { ;customize dance7 jump macro
-	global p := InputBox("How much percentage of the screenwidth will the mouse move in? CURRENT PERCENTAGE: " p * 100).value / 100
-	global dancefps := InputBox("At what fps will the mouse move at? (IF THE FPS IS TOO HIGH FOR YOUR COMPUTER THE MACRO WILL BE SLOWER!) CURRENT FPS: " dancefps).value
+	result := MsgBox("do you want to disable spin and do speed glitch instead? `n`n(IF YOU PRESS NO YOU WILL GET AN OPTION TO DO SPIN AND SPEED GLITCH!)",, "YesNo")
+	if(result = "Yes") {
+		global spin := 0
+		global equipped := InputBox("How many times will key and sword be equipped `n`nCURRENT: " equipped).value
+	} else {
+		result := MsgBox("do you want to do spin then speed glitch?",, "YesNo")
+		if(result = "Yes") {
+			global spin := 2
+		} else {
+			global spin := 1
+		}
+		global p := InputBox("How much percentage of the screenwidth will the mouse move in?`n`n CURRENT PERCENTAGE: " p * 100).value / 100
+		global dancefps := InputBox("At what fps will the mouse move at? `n`n(IF THE FPS IS TOO HIGH FOR YOUR COMPUTER THE MACRO WILL BE SLOWER!) `n`nCURRENT FPS: " dancefps).value
+		global equipped := 5
+	}
 }
 
 global uses := 10
@@ -96,16 +124,22 @@ if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe
 } else WarningMessage()
 }
 
-global atimes := 10
+global atimes := 5
 global asleep := 100
 ':: { ;ascend glitch
 if(WinActive("Roblox") || WinActive("RobloxPlayerBeta") || WinActive("Roblox.exe")) {
 	global atimes
 	global asleep
+	str := ""
+	s := 0
 	loop atimes {
-		Send("{2 Down}{3 Down}{2 Up}{3 Up}")
+		str := str "{2 Down}{3 Down}{2 Up}{3 Up}"
 	}
+	while(GetKeyState("'","P") || s = 0) {
+	Send(str)
 	Sleep asleep
+	s := 1
+	}
 } else WarningMessage()
 }
 
